@@ -18,7 +18,7 @@ public class ConsumerUser {
         Consumer<String , String > consumer = new KafkaConsumer<>(propertiesConsumer(topic));
         consumer.subscribe(Collections.singletonList(topic));
 
-        final ConsumerRecords <String , String > records = consumer.poll(Duration.ofSeconds(10));
+        final ConsumerRecords <String , String > records = consumer.poll(Duration.ofSeconds(50));
         records.forEach(record -> {
             Object objectTopic = record.value();
             message = objectTopic.toString();
