@@ -27,3 +27,6 @@ jobs:
 
       - name: verify version docker compose
         run: docker-compose --version
+
+      - name: Start containers
+        run: docker-compose -f "docker-compose.yml" up -d --build
