@@ -24,3 +24,6 @@ jobs:
 
       - name: application persmission docker compose
         run: sudo chmod +x /usr/local/bin/docker-compose;
+
+      - name: verify version docker compose
+        run: docker-compose --version
