@@ -16,5 +16,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: Start containers
-        run: docker-compose up
+      - name: Install docker compose
+        run: sudo su
+
+      - name: Install docker compose parte 2
+        run: sudo curl -L https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
