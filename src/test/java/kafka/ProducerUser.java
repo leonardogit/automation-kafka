@@ -10,6 +10,8 @@ public class ProducerUser {
         String gerarkey = String.valueOf(Math.random());
         Producer<String , String> producer = new KafkaProducer<>(propertiesProducer());
         producer.send(new ProducerRecord<>(topic,gerarkey,message));
+        producer.flush();
         System.out.println("Enviando mensagem para o topico !!! " + message);
+        producer.close();
     }
 }

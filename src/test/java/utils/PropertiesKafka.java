@@ -14,6 +14,7 @@ public class PropertiesKafka {
         properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
         properties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,StringSerializer.class.getName());
+
         return properties;
     }
 
@@ -23,6 +24,8 @@ public class PropertiesKafka {
         properties.setProperty(ConsumerConfig.GROUP_ID_CONFIG, topic);
         properties.setProperty(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         properties.setProperty(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
+        properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");  // Lê desde o início
+        properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");  // Desabilita commit automático
         return properties;
     }
 

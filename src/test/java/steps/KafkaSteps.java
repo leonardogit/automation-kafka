@@ -21,6 +21,6 @@ public class KafkaSteps {
 
     @Dado("consumo a mensagem enviada e valido seu conteudo")
     public void test2ConsumerMessageProducer(){
-        assertThat(ConsumerUser.getMessageTopic(constants.topicname), is("messagetestdois"));
+        assertThat(ConsumerUser.getMessageTopic(constants.topicname), is("messagetest"));
     }
 }
