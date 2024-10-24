@@ -1,0 +1,20 @@
+#Esse workflow irá buildar um projeto maven utilizando kafka e cucumber
+
+name: Integration Test (KafkaTest)
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  docker:
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Start containers
+        run: docker-compose -f "docker-compose.yml" up -d --build
