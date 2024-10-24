@@ -19,7 +19,7 @@ public class KafkaSteps {
         ProducerUser.postMessageTopic(constants.topicname , constants.message);
     }
 
-    @Dado("consumo a mensagem enviada e valido seu conteudo")
+    @Entao("consumo a mensagem enviada e valido seu conteudo com sucesso")
     public void test2ConsumerMessageProducer(){
         assertThat(ConsumerUser.getMessageTopic(constants.topicname), is("messagetest"));
     }
